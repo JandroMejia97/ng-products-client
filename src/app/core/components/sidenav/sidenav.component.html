@@ -1,0 +1,30 @@
+<mat-sidenav-container
+  role="main"
+  (backdropClick)="openedChange(false)">
+  <mat-sidenav
+    #sideNav
+    [mode]="mode"
+    position="start"
+    [opened]="openedSideBar"
+    (openedChange)="openedChange($event)">
+
+    <mat-nav-list>
+      <h2 mat-subheader>
+        Tienda
+      </h2>
+      <a *ngFor="let link of links"
+        mat-list-item
+        [routerLink]="[link.route]"
+        routerLinkActive="list-item-active">
+        <mat-icon mat-list-icon>
+          {{ link.icon }}
+        </mat-icon>
+        {{ link.name }}
+      </a>
+      <mat-divider></mat-divider>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

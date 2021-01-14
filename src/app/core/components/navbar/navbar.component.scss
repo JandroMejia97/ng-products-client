@@ -1,0 +1,28 @@
+div {
+  place-content: stretch flex-end;
+  align-items: stretch;
+  flex: 1 1 0%;
+}
+
+div, ul {
+  flex-direction: row;
+  box-sizing: border-box;
+  display: flex;
+}
+
+li {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+@media (min-width: 768px) {
+  button {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  li {
+    display: none;
+  }
+}

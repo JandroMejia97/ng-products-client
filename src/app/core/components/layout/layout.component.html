@@ -1,0 +1,7 @@
+<app-navbar
+  [openedSideBar]="openedSideBar"
+  (toggleEmitter)="openedChange($event)"></app-navbar>
+<app-sidenav
+  [openedSideBar]="openedSideBar"
+  (toggleEmitter)="openedChange($event)"></app-sidenav>
+
