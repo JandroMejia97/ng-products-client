@@ -1,0 +1,21 @@
+mat-sidenav-container, mat-sidenav-content {
+  height: 100% !important;
+}
+
+mat-sidenav-container {
+  margin-top: 64px;
+
+  mat-sidenav {
+    min-width: 200px;
+
+    mat-list-item {
+      height: 0;
+    }
+  }
+}
+
+@media (max-width: 599px) {
+  mat-sidenav-container {
+    margin-top: 56px;
+  }
+}

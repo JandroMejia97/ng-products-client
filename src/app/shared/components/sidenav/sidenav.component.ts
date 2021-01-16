@@ -13,6 +13,7 @@ import { SidenavMode } from '@core/enums/sidenav-mode.enum';
 export class SidenavComponent implements AfterViewInit {
   private isLargeScreen!: boolean;
   public mode: SidenavMode = SidenavMode.SIDE;
+  public fixedTopGap = 64;
   public links: Link[] = [
     {
       icon: 'article',
@@ -49,6 +50,10 @@ export class SidenavComponent implements AfterViewInit {
        });
       }
     );
+    this.breakpointObserver.observe('(min-width: 600px)').subscribe(result => {
+      this.fixedTopGap = result?.matches ? 64 : 56;
+
+   });
   }
 
   openedChange($event: boolean): void {

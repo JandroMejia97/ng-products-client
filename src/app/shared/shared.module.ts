@@ -1,32 +1,30 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatListModule } from '@angular/material/list';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
-
 import { RouterModule } from '@angular/router';
+import { MaterialModule } from '@material/material.module';
 
+import { LayoutComponent } from './components/layout/layout.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { PageBodyComponent } from './components/page-body/page-body.component';
+import { PageViewerComponent } from './components/page-viewer/page-viewer.component';
 
 @NgModule({
   declarations: [
+    LayoutComponent,
+    NavbarComponent,
+    SidenavComponent,
+    PageBodyComponent,
+    PageViewerComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
-    MatListModule,
-    MatIconModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatToolbarModule,
+    MaterialModule,
   ],
   exports: [
-    MatListModule,
-    MatIconModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatToolbarModule,
+    LayoutComponent,
+    PageBodyComponent,
   ]
 })
 export class SharedModule { }
