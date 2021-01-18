@@ -1,0 +1,29 @@
+<form [formGroup]="form" novalidate>
+  <mat-card-header>
+    <mat-card-title>
+      <h1>
+        Registrarse
+      </h1>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+      <mat-form-field
+      *ngFor="let input of inputs">
+      <mat-label>
+        {{ input.label }}
+      </mat-label>
+      <input
+        matInput
+        [type]="input.type"
+        [value]="input.value"
+        [required]="input.required"
+        [placeholder]="input.placeholder"
+        [formControlName]="input.formControlName">
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-raised-button color="primary">
+      Registrar
+    </button>
+  </mat-card-actions>
+</form>
