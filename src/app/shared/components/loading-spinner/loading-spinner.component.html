@@ -1,0 +1,12 @@
+<mat-dialog-content>
+  <mat-progress-spinner
+    [mode]="mode"
+    [color]="color"
+    [value]="value"
+    [diameter]="diameter"
+    [strokeWidth]="strokeWidth">
+  </mat-progress-spinner>
+  <p *ngIf="message.length > 0">
+    {{ message }}
+  </p>
+</mat-dialog-content>

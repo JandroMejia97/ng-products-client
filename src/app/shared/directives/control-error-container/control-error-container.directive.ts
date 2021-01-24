@@ -10,7 +10,7 @@ import {
   ViewContainerRef,
   ComponentFactoryResolver,
 } from '@angular/core';
-import { merge, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { NgControl } from '@angular/forms';
 import { MatFormField } from '@angular/material/form-field';
 

@@ -8,10 +8,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 
+import { matDialogConfig } from '@utils/consts/mat-dialog-config.const';
 import { matSnackbarConfig } from '@utils/consts/mat-snackbar-config.const';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { matFormFieldOptions } from '@utils/consts/mat-form-field-options.const';
 
 @NgModule({
@@ -24,10 +27,12 @@ import { matFormFieldOptions } from '@utils/consts/mat-form-field-options.const'
     MatTabsModule,
     MatInputModule,
     MatButtonModule,
+    MatDialogModule,
     MatSidenavModule,
     MatToolbarModule,
     MatSnackBarModule,
     MatFormFieldModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     MatListModule,
@@ -36,10 +41,12 @@ import { matFormFieldOptions } from '@utils/consts/mat-form-field-options.const'
     MatTabsModule,
     MatInputModule,
     MatButtonModule,
+    MatDialogModule,
     MatSidenavModule,
     MatToolbarModule,
     MatSnackBarModule,
     MatFormFieldModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
     {
@@ -49,6 +56,10 @@ import { matFormFieldOptions } from '@utils/consts/mat-form-field-options.const'
     {
       provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
       useValue: matSnackbarConfig
+    },
+    {
+      provide: MAT_DIALOG_DEFAULT_OPTIONS,
+      useValue: matDialogConfig
     }
   ]
 })
