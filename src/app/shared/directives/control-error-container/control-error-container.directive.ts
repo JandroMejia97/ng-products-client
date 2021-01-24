@@ -10,7 +10,7 @@ import {
   ViewContainerRef,
   ComponentFactoryResolver,
 } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { merge, Subscription } from 'rxjs';
 import { NgControl } from '@angular/forms';
 import { MatFormField } from '@angular/material/form-field';
 
@@ -25,7 +25,7 @@ import { ControlErrorDirective } from '../control-error/control-error.directive'
 export class ControlErrorContainerDirective implements AfterViewInit, OnDestroy {
   @Input() customErrors!: any;
   componentRef?: ComponentRef<ControlErrorComponent>;
-  private subscription?: Subscription;
+  private subscription?: Subscription = new Subscription();
   @ViewChild(ControlErrorDirective) controlError?: ControlErrorDirective;
 
   get control(): NgControl {
@@ -43,9 +43,16 @@ export class ControlErrorContainerDirective implements AfterViewInit, OnDestroy 
     if (!this.customErrors) {
       this.customErrors = this.controlError ? this.controlError.customErrors : {};
     }
-    this.subscription = this.control.valueChanges?.subscribe(() => {
+    this.subscription?.add(
+      this.control.valueChanges?.subscribe(() => {
         this.obtainErrors();
-    });
+      })
+    );
+    this.subscription?.add(
+      this.control.statusChanges?.subscribe(() => {
+        this.obtainErrors();
+      })
+    );
   }
 
   ngOnDestroy(): void {

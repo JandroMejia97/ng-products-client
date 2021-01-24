@@ -1,6 +1,9 @@
 import { InjectionToken } from '@angular/core';
 
 export const defaultErrors = {
+  email: () => `
+    La dirección de correo electrónico ingresada es inválida.
+  `,
   required: () => `Este campo es requerido.`,
   minlength: ({ requiredLength, actualLength}: any) => `
     Se esperaban al menos ${requiredLength} caracteres,
