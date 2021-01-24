@@ -4,7 +4,18 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://drf-products-api.herokuapp.com/api/'
+  apiUrl: 'http://localhost:8000/api/',
+  apiEndpoints: {
+    brands: 'brands/',
+    products: 'products/',
+    categories: 'categories/',
+    token: {
+      token: 'token/',
+      verify: 'verify/',
+      refresh: 'refresh/'
+    },
+    me: 'me/'
+  }
 };
 
 /*

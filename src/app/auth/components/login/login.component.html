@@ -1,26 +1,53 @@
-<form novalidate [formGroup]="form">
+<form id="loginForm" [formGroup]="form" (ngSubmit)="submitForm()">
   <mat-card-header>
     <mat-card-title>
       <h1>Iniciar Sesion</h1>
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <mat-form-field
-      *ngFor="let input of inputs">
+    <mat-form-field controlErrorContainer
+      [customErrors]="usernameInputField.errorMessages">
       <mat-label>
-        {{ input.label }}
+        {{ usernameInputField.label }}
       </mat-label>
       <input
         matInput
-        [type]="input.type"
-        [value]="input.value"
-        [required]="input.required"
-        [placeholder]="input.placeholder"
-        [formControlName]="input.formControlName">
+        [type]="usernameInputField.type"
+        [value]="usernameInputField.value"
+        [required]="usernameInputField.required"
+        [placeholder]="usernameInputField.placeholder"
+        [formControlName]="usernameInputField.formControlName">
+    </mat-form-field>
+    <mat-form-field controlErrorContainer
+      [customErrors]="passwordInputField.errorMessages">
+      <mat-label>
+        {{ passwordInputField.label }}
+      </mat-label>
+      <input
+        matInput
+        [type]="hidePassword ? passwordInputField.type : 'text'"
+        [value]="passwordInputField.value"
+        [required]="passwordInputField.required"
+        [placeholder]="passwordInputField.placeholder"
+        [formControlName]="passwordInputField.formControlName">
+        <button
+          matSuffix
+          mat-button
+          type="button"
+          mat-icon-button
+          aria-label="Mostrar contraseña"
+          (click)="changeTypeOfThePasswordField()">
+          <mat-icon>{{ hidePassword ? 'visibility' : 'visibility_off' }}</mat-icon>
+        </button>
     </mat-form-field>
   </mat-card-content>
   <mat-card-actions align="end">
-    <button mat-raised-button color="primary">
+    <button
+      type="submit"
+      color="primary"
+      form="loginForm"
+      mat-raised-button
+      [disabled]="form.invalid">
       Iniciar Sesión
     </button>
   </mat-card-actions>

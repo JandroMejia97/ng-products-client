@@ -1,4 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+
+// Include non-theme styles for core.
+@include mat-core();
+
+$primary: mat-palette($mat-indigo);
+$accent:  mat-palette($mat-pink, A200, A100, A400);
+$theme: mat-light-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+  )
+));
+
+$color: mat-get-color-config($theme);
+$primary: map-get($color, primary);
+$accent: map-get($color, accent);
+$white: map-get($color, light);
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.red-snackbar {
+  background-color: red;
+  color: #fff;
+
+  button {
+    color: #fff;
+    font-weight: bold;
+  }
+}
+
+.green-snackbar {
+  background-color: green;
+  color: #fff;
+
+  button {
+    color: #fff;
+    font-weight: bold;
+  }
+}

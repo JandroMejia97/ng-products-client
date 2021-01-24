@@ -9,6 +9,18 @@
   mat-form-field {
     width: 100%;
   }
+
+  .mat-tab-header {
+    overflow-x: scroll !important;
+  }
+
+  .mat-tab-link-container {
+    overflow: visible !important;
+  }
+
+  .mat-tab-header-pagination {
+    display: none !important;
+  }
 }
 
 .container {
@@ -16,11 +28,8 @@
   display: flex;
   min-height: 100vh;
   align-items: center;
+  background: #120A1D;
   justify-content: center;
-  background-image: url(https://source.unsplash.com/collection/8859300/) !important;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 mat-card {
@@ -48,7 +57,7 @@ mat-card::before {
   font-weight: 700;
   font-size: 15px;
 }
-.mat-card:not([class*=mat-elevation-z]) {
+mat-card:not([class*=mat-elevation-z]) {
   box-shadow: none !important;
 }
 

@@ -4,10 +4,10 @@ import { FormFieldAppearance } from '@utils/enums/form-field-appearance.enum';
 
 export class InputField {
   type = 'text';
-  label?: string;
+  readonly label?: string;
   required = false;
   placeholder = '';
-  errorMessages?: any[] = [];
-  formControlName: string | number | null = null;
+  errorMessages?: any = {};
+  readonly formControlName: string | number | null = null;
   value?: string | number | undefined | null = '';
 }
